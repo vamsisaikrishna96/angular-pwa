@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-  posts: any = undefined;
+  posts: any;
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.http
@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
       .subscribe((result: any) => {
         this.posts = [];
         result.map((resultDetail: any) => this.posts.push(resultDetail.title));
-        
+
       });
   }
 }
